@@ -96,13 +96,9 @@ def sales():
 def login():
     return render_template("login.html")
 
-@app.route("/wishlist")
-def wish():
-    return render_template("wishlist.html")
-
-@app.route("/gallery")
-def gallery():
-    return render_template("gallery.html")
+@app.route("/register")
+def register():
+    return render_template("register.html")
 
 @app.route('/products')
 def prods():
@@ -123,5 +119,13 @@ def shop():
 @app.route("/shop-details")
 def shop_details():
     return render_template("shop-detail.html")
+
+@app.route("/check-out")
+def check():
+    return render_template("checkout.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 app.run(debug=True)

@@ -9,6 +9,7 @@
      <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png">
  
     <link rel="stylesheet" href="/static/css/log.css" />
+    <link rel="stylesheet" href="/static/css/reg.css">
     <link rel="stylesheet" href="/static/css/base.css" />
             <!-- Bootstrap CSS -->
             <link rel="stylesheet" href="/static/css/bootstrap.min.css">
@@ -59,13 +60,19 @@
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="login-box">
-                        <li><a href="/login">
+                        <li class="nav-item">
+                            <a class="nav-link" href="login" style="margin-left: 30px;">Login</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="register" style="margin-left: 30px;">Register</a>
+                          </li>
+                        <!-- <li><a href="/login">
                       <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Login">
                         <option>Register Here</option>
                         <option>Login</option>
                       </select>
                     </a>
-                    </li>
+                    </li> -->
                     </div>
            
                       <div class="text-slid-box">
@@ -129,17 +136,12 @@
                           <li class="dropdown active">
                               <a href="/shop" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
                               <ul class="dropdown-menu">
-                  <li><a href="shop.html">Sidebar Shop</a></li>
+                  <li><a href="/shop">Sidebar Shop</a></li>
                   <li><a href="/shop-details">Shop Detail</a></li>
-                                  <li><a href="cart.html">Cart</a></li>
-                                  <li><a href="checkout.html">Checkout</a></li>
+                                  <li><a href="/checkout">Checkout</a></li>
                                   <li><a href="/my-account">My Account</a></li>
-                                  <li><a href="/wishlist">Wishlist</a></li>
                               </ul>
-                          </li>
-                          <li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
-                          <li class="nav-item"><a class="nav-link" href="/contact-us">Contact Us</a></li>
-                          
+                          </li>                          
                       </ul>
                   </div>
                   <!-- /.navbar-collapse -->
@@ -321,6 +323,7 @@
       let table = new DataTable("#myTable");
     </script>
     <script src="/static/js/log.js"></script>
+    <script src="/static/js/reg.js"></script>
       <!-- ALL JS FILES -->
       <script src="/static/js/jquery-3.2.1.min.js"></script>
       <script src="/static/js/popper.min.js"></script>
