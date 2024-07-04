@@ -16,8 +16,8 @@
 
 # app.run(debug=True)
 
-from flask import Flask,render_template,redirect,url_for
-from database import get_data,prof_per_prod,profit_per_day,sales_per_day,sales_per_prod
+from flask import Flask,flash,render_template,request,redirect,url_for
+from database import get_data,prof_per_prod,profit_per_day,sales_per_day,sales_per_prod,check_email,check_email_pass,insert_user
 from flask import session
 
 # flask instance
@@ -27,29 +27,29 @@ app.secret_key = "betika"
 @app.route("/")
 def index():
     if 'email' not in session:
-        # return redirect(url_for('login'))
-        return render_template("base.html")
+        return redirect(url_for('login'))
+        # return render_template("base.html")
 
 @app.route("/home")
 def home():
-    # if 'email' not in session:
-    #     return redirect(url_for('login'))
+    if 'email' not in session:
+        return redirect(url_for('login'))
     return render_template("index.html")
 
 # products render a products.html file
 @app.route("/products")
 def products():
     if 'email' not in session:
-        # return redirect(url_for('login'))
-       products = get_data("products")
+        return redirect(url_for('login'))
+    products = get_data("products")
     return render_template("products.html",prods=products)
 
 
 # dashboard and render
 @app.route("/dashboard")
 def dashboard():
-    # if 'email' not in session:
-        # return redirect(url_for('login'))
+    if 'email' not in session:
+        return redirect(url_for('login'))
     p_product = prof_per_prod()
     p_day = profit_per_day()
     s_day = sales_per_day()
@@ -87,17 +87,49 @@ def dashboard():
 @app.route("/sales")
 def sales():
     if 'email' not in session:
-        # return redirect(url_for('login'))
-      sales = get_data("sales")
+        return redirect(url_for('login'))
+    sales = get_data("sales")
     products = get_data("products")
     return render_template("sales.html",sales=sales,prods=products)
 
-@app.route("/login")
+@app.route("/login", methods=["POST", "GET"])
 def login():
+        # get form data
+    if request.method == "POST":
+        email = request.form["email"]
+        password = request.form["password"]
+
+    # check email existence only if email is not None
+    # if email:
+        ch_email = check_email(email)
+
+        if ch_email == None:
+            flash("email does not exist, please register")
+            return redirect(url_for("register"))
+        else:
+            ch_pass = check_email_pass(email, password)
+            if len(ch_pass) < 1:
+                flash("incorrect email or password")
+            else:
+                session ['email'] = email
+                flash("login successful")
+                return redirect(url_for("dashboard"))
     return render_template("login.html")
 
 @app.route("/register")
 def register():
+        # get form data
+    if request.method == "POST":
+        f_name = request.form["full_name"]
+        email = request.form["email"]
+        password = request.form["password"]
+        # insert user
+        c_email = check_email(email)
+        if c_email == None:
+            new_user = (f_name,email,password)
+            insert_user(new_user)
+            flash("registered successfully")
+        return redirect(url_for("login"))
     return render_template("register.html")
 
 @app.route('/products')

@@ -52,14 +52,14 @@ img {
 /*=============== LOGIN ===============*/
 .login {
   position: relative;
-  height: 100vh;
+  height: 100%;
   display: grid;
   align-items: center;
 }
 .login__img {
   position: absolute;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
@@ -81,7 +81,13 @@ img {
 .login__content, .login__box {
   display: grid;
 }
+.login__content, .login__box {
+  display: grid;
+}
 .login__content {
+  row-gap: 1.75rem;
+  margin-bottom: 1.5rem;
+}.login__content {
   row-gap: 1.75rem;
   margin-bottom: 1.5rem;
 }
@@ -122,6 +128,10 @@ img {
 .login__box:nth-child(2) input {
   padding-right: 1.8rem;
 }
+.login__box:nth-child(2) input {
+  padding-right: 1.8rem;
+}
+
 .login__check, .login__check-group {
   display: flex;
   align-items: center;
