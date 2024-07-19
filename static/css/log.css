@@ -1,24 +1,24 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"); */
 /*=============== VARIABLES CSS ===============*/
-:root {
+/* :root { */
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --white-color: hsl(0, 0%, 100%);
-  --black-color: hsl(0, 0%, 0%);
+  /* --white-color: hsl(0, 0%, 100%);
+  --black-color: hsl(0, 0%, 0%); */
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
-  --body-font: "Poppins", sans-serif;
+  /* --body-font: "Poppins", sans-serif;
   --h1-font-size: 1.75rem;
   --normal-font-size: 1rem;
-  --small-font-size: .813rem;
+  --small-font-size: .813rem; */
   /*========== Font weight ==========*/
-  --font-medium: 500;
-}
+  /* --font-medium: 500;
+} */
 
 /*=============== BASE ===============*/
-* {
-  box-sizing: border-box;
+/* * { */
+  /* box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -164,23 +164,23 @@ img {
 }
 .login__register a:hover {
   text-decoration: underline;
-}
+} */
 
 /* Input focus move up label */
-.login__input:focus + .login__label {
+/* .login__input:focus + .login__label {
   top: -12px;
   font-size: var(--small-font-size);
-}
+} */
 
 /* Input focus sticky top label */
-.login__input:not(:placeholder-shown).login__input:not(:focus) + .login__label {
+/* .login__input:not(:placeholder-shown).login__input:not(:focus) + .login__label {
   top: -12px;
   font-size: var(--small-font-size);
-}
+} */
 
 /*=============== BREAKPOINTS ===============*/
 /* For medium devices */
-@media screen and (min-width: 576px) {
+/* @media screen and (min-width: 576px) {
   .login {
     justify-content: center;
   }
@@ -192,4 +192,4 @@ img {
   .login__title {
     font-size: 2rem;
   }
-}
+} */
